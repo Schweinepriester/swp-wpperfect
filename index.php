@@ -14,7 +14,7 @@ if ( have_posts() ) :
                 <?php the_content(); ?>
             </div>
             <footer class="entry-footer">
-                
+
             </footer>
         </article>
     <?php

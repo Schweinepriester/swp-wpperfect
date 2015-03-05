@@ -1,5 +1,13 @@
-article > * {
+[class^="entry-"] > * {
     max-width: 1024px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.box-flex-image{
+    display: flex;
+}
+
+.box-flex-image img{
+    width: 100%;
 }
