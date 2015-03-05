@@ -1,0 +1,5 @@
+article > * {
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+}
