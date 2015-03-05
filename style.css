@@ -1,11 +1,19 @@
-[class^="entry-"] > * {
-    max-width: 1024px;
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+[class^="entry-"] > *{
     margin-right: auto;
     margin-left: auto;
 }
 
+[class^="entry-"] > *:not(.full-width) {
+    max-width: 1024px;
+}
+
 .box-flex-image{
     display: flex;
+    padding: 0 10px;
 }
 
 .box-flex-image img{
