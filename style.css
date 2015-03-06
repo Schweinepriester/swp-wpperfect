@@ -7,15 +7,29 @@ body {
     margin-left: auto;
 }
 
-[class^="entry-"] > *:not(.full-width) {
+[class^="entry-"] > p{
+    width: 75ch;
+    font-size: 2.2vmin;
+    line-height: 3.2vmin;
+}
+
+[class^="entry-"] > *:not(.box-flex-image) {
     max-width: 1024px;
 }
 
 .box-flex-image{
     display: flex;
     padding: 0 10px;
+    justify-content: center;
 }
 
 .box-flex-image img{
-    width: 100%;
+    /* width: 100%; */
+    max-height: 100vh;
+    max-width: 100%;
+}
+
+img{
+    width: auto;
+    height: auto;
 }
