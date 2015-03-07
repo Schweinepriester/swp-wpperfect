@@ -9,17 +9,17 @@ body {
 
 [class^="entry-"] > p{
     width: 75ch;
-    font-size: 2.2vmin;
-    line-height: 3.2vmin;
+    font-size: 2vmin;
+    line-height: 3vmin;
 }
 
 [class^="entry-"] > *:not(.box-flex-image) {
     max-width: 1024px;
+    padding: 0 10px;
 }
 
 .box-flex-image{
     display: flex;
-    padding: 0 10px;
     justify-content: center;
 }
 
@@ -29,6 +29,7 @@ body {
 
 .box-flex-image img:not(.size-full){
     max-height: 100vh;
+    padding: 0 10px;
 }
 
 img{
