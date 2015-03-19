@@ -9,7 +9,7 @@ body {
 
 [class^="entry-"] > p{
     width: 75ch;
-    font-size: calc(14px + 0.6vw);
+    font-size: calc(14px + 0.5vw);
     line-height: 1.5;
 }
 
@@ -23,11 +23,8 @@ body {
     justify-content: center;
 }
 
-.box-flex-image img{
-    max-width: 100%;
-}
-
 .box-flex-image img:not(.full-height){
+    max-width: 100vw;
     max-height: 100vh;
     padding: 0 10px;
 }
