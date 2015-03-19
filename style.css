@@ -21,6 +21,7 @@ body {
 
 .box-flex-image{
     display: flex;
+    display: -webkit-flex;
     justify-content: center;
     max-width: 100vw;
     /* padding: 0 10px; */
