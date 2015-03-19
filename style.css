@@ -8,13 +8,14 @@ body {
 }
 
 [class^="entry-"] > p{
-    width: 75ch;
+    max-width: 75ch;
+    min-width: 35ch;
     font-size: calc(14px + 0.5vw);
     line-height: 1.5;
 }
 
 [class^="entry-"] > *:not(.box-flex-image) {
-    max-width: 1024px;
+    // max-width: 1024px;
     padding: 0 10px;
 }
 
