@@ -10,7 +10,7 @@ body {
 [class^="entry-"] > p{
     max-width: 75ch;
     min-width: 35ch;
-    font-size: calc(14px + 0.5vw);
+    font-size: calc(16px + 0.5vw);
     line-height: 1.5;
 }
 
