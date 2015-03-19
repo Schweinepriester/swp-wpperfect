@@ -9,7 +9,7 @@ body {
 
 [class^="entry-"] > p{
     width: 75ch;
-    font-size: calc(12px + 0.8vw);
+    font-size: calc(14px + 0.6vw);
     line-height: 1.5;
 }
 
