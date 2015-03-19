@@ -10,7 +10,7 @@ body {
 [class^="entry-"] > p{
     width: 75ch;
     font-size: 2vmin;
-    line-height: 3vmin;
+    line-height: 1.5;
 }
 
 [class^="entry-"] > *:not(.box-flex-image) {
@@ -27,7 +27,7 @@ body {
     max-width: 100%;
 }
 
-.box-flex-image img:not(.size-full){
+.box-flex-image img:not(.full-height){
     max-height: 100vh;
     padding: 0 10px;
 }
