@@ -2,21 +2,25 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
-[class^="entry-"] > *{
+[class^="entry-"]:not(.entry-title) > *:not(.box-flex-image){
     margin-right: auto;
     margin-left: auto;
+    min-width: 35ch;
+    padding: 0 13px;
 }
 
 [class^="entry-"] > p{
     max-width: 75ch;
-    min-width: 35ch;
     font-size: calc(14px + 0.4vw);
     line-height: 1.5;
     /* text-align: justify; TODO maybe? */
 }
 
-[class^="entry-"] > *:not(.box-flex-image) {
-    padding: 0 13px;
+.entry-title{
+    max-width: 60ch;
+    text-align: center;
+    font-size: calc(36px + 0.4vw);
+    line-height: 1.2;
 }
 
 .box-flex-image{

@@ -25,7 +25,8 @@ function swp_modify_images($content){
             $new_src = substr($filename, 0, $extension_pos) . '-lowres' . substr($filename, $extension_pos);
             $image->setAttribute('src', $new_src);
         }
-        return $document->saveHTML();
+        // from http://php.net/manual/de/domdocument.savehtml.php
+        return preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $document->saveHTML()));
     }
     return $content;
 }
