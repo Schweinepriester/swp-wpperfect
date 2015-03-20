@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-gulp.task('default', ['less', 'autoprefixer']);
+gulp.task('default', ['autoprefixer']);
 
 gulp.task('less', function () {
     var less = require('gulp-less');
@@ -13,12 +13,12 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('autoprefixer', ['less'], function () {
+gulp.task('autoprefixer', function () {
     var postcss      = require('gulp-postcss');
     var sourcemaps   = require('gulp-sourcemaps');
     var autoprefixer = require('autoprefixer-core');
 
-    return gulp.src('./*.css')
+    return gulp.src('./dev/*.css')
         .pipe(sourcemaps.init())
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 version'] }) ]))
         .pipe(sourcemaps.write('.'))
