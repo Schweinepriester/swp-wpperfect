@@ -2,23 +2,21 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
-/*[class^="entry-"] > *{
-    margin-right: auto;
-    margin-left: auto;
-}*/
-
-[class^="entry-"] > p{
-    max-width: 75ch;
-    min-width: 35ch;
-    font-size: calc(16px + 0.5vw);
-    line-height: 1.5;
+[class^="entry-"] > *{
     margin-right: auto;
     margin-left: auto;
 }
 
+[class^="entry-"] > p{
+    max-width: 75ch;
+    min-width: 35ch;
+    font-size: calc(14px + 0.4vw);
+    line-height: 1.5;
+    /* text-align: justify; TODO maybe? */
+}
+
 [class^="entry-"] > *:not(.box-flex-image) {
-    /* max-width: 1024px; */
-    padding: 0 10px;
+    padding: 0 13px;
 }
 
 .box-flex-image{
