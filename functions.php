@@ -1,5 +1,6 @@
 <?php
 
+add_theme_support( 'automatic-feed-links' );
 add_filter( 'the_content', 'filter_p_images' );
 add_filter( 'the_content', 'swp_modify_images' );
 add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
@@ -12,18 +13,21 @@ function filter_p_images($content){
 }
 
 function swp_modify_images($content){
-    $document = new DOMDocument();
-    $document->LoadHTML($content);
-    $images = $document->getElementsByTagName('img');
-    foreach ($images as $image){
-        $filename = $image->getAttribute('src');
-        $image->setAttribute('data-src', $filename);
-        $image->setAttribute('class', $image->getAttribute('class') . ' lazyload');
-        $extension_pos = strrpos($filename, '.');
-        $new_src = substr($filename, 0, $extension_pos) . '-lowres' . substr($filename, $extension_pos);
-        $image->setAttribute('src', $new_src);
+    if(!is_feed()){
+        $document = new DOMDocument();
+        $document->LoadHTML($content);
+        $images = $document->getElementsByTagName('img');
+        foreach ($images as $image){
+            $filename = $image->getAttribute('src');
+            $image->setAttribute('data-src', $filename);
+            $image->setAttribute('class', $image->getAttribute('class') . ' lazyload');
+            $extension_pos = strrpos($filename, '.');
+            $new_src = substr($filename, 0, $extension_pos) . '-lowres' . substr($filename, $extension_pos);
+            $image->setAttribute('src', $new_src);
+        }
+        return $document->saveHTML();
     }
-    return $document->saveHTML();
+    return $content;
 }
 
 function swp_theme_setup(){
