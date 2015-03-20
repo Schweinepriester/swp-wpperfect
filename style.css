@@ -1,41 +1,41 @@
 body {
-    font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
-
-[class^="entry-"] > *{
-    margin-right: auto;
-    margin-left: auto;
+[class^="entry-"] > * {
+  margin-right: auto;
+  margin-left: auto;
 }
-
-[class^="entry-"] > p{
-    max-width: 75ch;
-    min-width: 35ch;
-    font-size: calc(16px + 0.5vw);
-    line-height: 1.5;
+[class^="entry-"] > p {
+  max-width: 75ch;
+  min-width: 35ch;
+  font-size: calc(16.5px);
+  line-height: 1.5;
 }
-
 [class^="entry-"] > *:not(.box-flex-image) {
-    /* max-width: 1024px; */
-    padding: 0 10px;
+  /* max-width: 1024px; */
+  padding: 0 10px;
+}
+.box-flex-image {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 100vw;
+  /* padding: 0 10px; */
+}
+.box-flex-image a,
+img {
+  max-width: 100%;
+}
+.box-flex-image a,
+img:not(.full-height) {
+  max-height: 100vh;
+}
+img {
+  width: auto;
+  height: auto;
 }
 
-.box-flex-image{
-    display: flex;
-    display: -webkit-flex;
-    justify-content: center;
-    max-width: 100vw;
-    /* padding: 0 10px; */
-}
-
-.box-flex-image a,img{
-    max-width: 100%;
-}
-
-.box-flex-image a,img:not(.full-height){
-    max-height: 100vh;
-}
-
-img{
-    width: auto;
-    height: auto;
-}
+/*# sourceMappingURL=style.css.map */

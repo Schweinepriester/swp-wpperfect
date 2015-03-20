@@ -1,0 +1,13 @@
+{
+  "name": "swp-wpperfect",
+  "description": "The perfect wordpress theme?",
+  "author": "Kai Hollberg",
+  "devDependencies": {
+    "autoprefixer-core": "^5.1.7",
+    "gulp": "^3.8.11",
+    "gulp-less": "^3.0.2",
+    "gulp-postcss": "^4.0.3",
+    "gulp-sourcemaps": "^1.5.1"
+  },
+  "private": true
+}
