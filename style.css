@@ -8,7 +8,7 @@ body {
 [class^="entry-"] > p {
   max-width: 75ch;
   min-width: 35ch;
-  font-size: calc(16.5px);
+  font-size: calc(16px + 0.5vw);
   line-height: 1.5;
 }
 [class^="entry-"] > *:not(.box-flex-image) {
