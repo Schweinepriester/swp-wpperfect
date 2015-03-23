@@ -1,6 +1,13 @@
 var gulp = require('gulp');
+var paths = {
+    css: './dev/*.css'
+}
 
 gulp.task('default', ['autoprefixer']);
+
+gulp.task('watch', function(){
+    gulp.watch(paths.css, ['autoprefixer']);
+});
 
 gulp.task('less', function () {
     var less = require('gulp-less');
@@ -18,7 +25,7 @@ gulp.task('autoprefixer', function () {
     var sourcemaps   = require('gulp-sourcemaps');
     var autoprefixer = require('autoprefixer-core');
 
-    return gulp.src('./dev/*.css')
+    return gulp.src(paths.css)
         .pipe(sourcemaps.init())
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 version'] }) ]))
         .pipe(sourcemaps.write('.'))
