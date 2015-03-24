@@ -15,4 +15,13 @@
     </head>
 
     <body <?php body_class(); ?>>
-        <main>
+        <header class="side-header">
+            <h1>
+                <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a>
+            </h1>
+            <nav>
+                <ul>
+                    <?php wp_list_pages('title_li='); ?>
+                </ul>
+            </nav>
+        </header>
