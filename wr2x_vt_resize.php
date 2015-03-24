@@ -6,7 +6,7 @@
  */
 
 if ( !function_exists('wr2x_vt_resize') ) {
-	function wr2x_vt_resize( $file_path, $width, $height, $crop, $newfile, $customCrop = false, $quality = 100) {
+	function wr2x_vt_resize( $file_path, $width, $height, $crop, $newfile, $customCrop = false, $quality = 95) {
 		$crop_params = $crop == '1' ? true : $crop;
 		$orig_size = getimagesize( $file_path );
 		$image_src[0] = $file_path;

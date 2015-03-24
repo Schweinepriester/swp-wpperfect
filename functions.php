@@ -18,12 +18,25 @@ function swp_modify_images($content){
         $document->LoadHTML($content);
         $images = $document->getElementsByTagName('img');
         foreach ($images as $image){
-            $filename = $image->getAttribute('src');
-            $image->setAttribute('data-src', $filename);
-            $image->setAttribute('class', $image->getAttribute('class') . ' lazyload');
-            $extension_pos = strrpos($filename, '.');
-            $new_src = substr($filename, 0, $extension_pos) . '-lowres' . substr($filename, $extension_pos);
-            $image->setAttribute('src', $new_src);
+            $filename = $image->getAttribute('src'); // legacy
+            $url = $filename;
+            $url_relative = preg_replace("(^https?:)", "", $url); // from http://stackoverflow.com/questions/4357668/how-do-i-remove-http-https-and-slash-from-user-input-in-php
+            $image->setAttribute('src', $url_relative);
+
+            // add srcset if not 'size-full' image
+            if(strpos($image->getAttribute('class'),'size-full') === false){
+                $extension_pos = strrpos($url_relative, '.');
+                $src2x = substr($url_relative, 0, $extension_pos) . swp_retina_extension() . substr($url_relative, $extension_pos);
+                $srcset = $url_relative . ' 1x, ' . $src2x . ' 2x';
+                $image->setAttribute('srcset', $srcset);
+            }
+
+            // insert lowres-images for use with https://github.com/aFarkas/lazysizes
+            // $image->setAttribute('data-src', $filename);
+            // $image->setAttribute('class', $image->getAttribute('class') . ' lazyload');
+            // $extension_pos = strrpos($filename, '.');
+            // $new_src = substr($filename, 0, $extension_pos) . '-lowres' . substr($filename, $extension_pos);
+            // $image->setAttribute('src', $new_src);
         }
         // from http://php.net/manual/de/domdocument.savehtml.php
         return preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $document->saveHTML()));
@@ -59,12 +72,20 @@ function swp_is_image_meta($metadata){
     return true;
 }
 
-function swp_retina_extension(){
-    return '@2x.';
+function swp_retina_extension($dot = false){
+    $retina_extension = '@2x';
+    if($dot){
+        $retina_extension .= '.';
+    }
+    return $retina_extension;
 }
 
-function swp_lowres_extension(){
-    return '-lowres.';
+function swp_lowres_extension($dot = false){
+    $lowres_extension = '-lowres';
+    if($dot){
+        $lowres_extension .= '.';
+    }
+    return $lowres_extension;
 }
 
 function wr2x_get_image_sizes() {
@@ -142,8 +163,8 @@ function swp_generate_images($metadata){
         if ( isset( $meta['sizes'][$name] ) && isset( $meta['sizes'][$name]['file'] ) ) {
             $normal_file = trailingslashit( $basepath ) . $meta['sizes'][$name]['file'];
             $pathinfo = pathinfo( $normal_file ) ;
-            $retina_file = trailingslashit( $pathinfo['dirname'] ) . $pathinfo['filename'] . swp_retina_extension() . $pathinfo['extension'];
-            $lowres_file = trailingslashit( $pathinfo['dirname'] ) . $pathinfo['filename'] . swp_lowres_extension() . $pathinfo['extension'];
+            $retina_file = trailingslashit( $pathinfo['dirname'] ) . $pathinfo['filename'] . swp_retina_extension(true) . $pathinfo['extension'];
+            $lowres_file = trailingslashit( $pathinfo['dirname'] ) . $pathinfo['filename'] . swp_lowres_extension(true) . $pathinfo['extension'];
         }
 
         if ( $retina_file && file_exists( $retina_file ) ) {
