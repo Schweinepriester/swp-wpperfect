@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
         <?php wp_head(); ?>
-        <script src="<?php echo get_template_directory_uri(); ?>/js/lazysizes.min.js" async></script>
+        <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/lazysizes.min.js" async></script> -->
     </head>
 
     <body <?php body_class(); ?>>
