@@ -14,7 +14,9 @@ if ( have_posts() ) :
                 <?php the_content(); ?>
             </div>
             <footer class="entry-footer">
-
+                <div>
+                    <?php echo get_the_date(); ?>, <?php the_time(); ?> von <?php the_author(); ?>
+                </div>
             </footer>
         </article>
     <?php

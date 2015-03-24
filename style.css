@@ -12,7 +12,7 @@ body {
 [class^="entry-"] > p{
     min-width: 35ch;
     font-size: calc(13px + 0.4vw);
-    line-height: 1.5;
+    line-height: 1.6;
     /* text-align: justify; TODO maybe? */
 }
 
@@ -55,5 +55,9 @@ a {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
+}
+
+article:not(:last-of-type) {
+    margin-bottom: 5vh;
 }
 /*# sourceMappingURL=style.css.map */
