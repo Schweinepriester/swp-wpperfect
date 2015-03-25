@@ -91,7 +91,7 @@ function swp_lowres_extension($dot = false){
     return $lowres_extension;
 }
 
-function wr2x_get_image_sizes() {
+function swp_get_image_sizes() {
     $sizes = array();
     global $_wp_additional_image_sizes;
     foreach (get_intermediate_image_sizes() as $s) {
@@ -137,7 +137,7 @@ function swp_generate_images($metadata){
     $meta = $metadata;
     require('wr2x_vt_resize.php');
     global $_wp_additional_image_sizes;
-    $sizes = wr2x_get_image_sizes();
+    $sizes = swp_get_image_sizes();
     if ( !isset( $meta['file'] ) )
         return;
     $originalfile = $meta['file'];
