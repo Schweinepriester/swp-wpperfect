@@ -4,7 +4,7 @@ add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
 // add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 
 add_filter( 'the_content', 'filter_p_images' );
-add_filter( 'the_content', 'swp_modify_images' );
+// add_filter( 'the_content', 'swp_modify_images' );
 // add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
 add_action( 'after_setup_theme', 'swp_theme_setup' );
 add_filter( 'image_size_names_choose', 'my_custom_sizes' );
