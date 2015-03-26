@@ -1,7 +1,7 @@
 <?php
 
 add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
-add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
+// add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 
 add_filter( 'the_content', 'filter_p_images' );
 add_filter( 'the_content', 'swp_modify_images' );
@@ -24,18 +24,21 @@ function swp_modify_images($content){
     foreach ($images as $image){
         $filename = $image->getAttribute('src'); // legacy
         $url = $filename;
-        $attachment_id = fjarrett_get_attachment_id_by_url($url);
-        $wp_metadata = wp_get_attachment_metadata($attachment_id);
+        // $attachment_id = fjarrett_get_attachment_id_by_url($url);
+        // $wp_metadata = wp_get_attachment_metadata($attachment_id);
 
-        // $url_relative = swp_make_link_protocol_relative($url);
-        $url_relative = $url;
-        // $image->setAttribute('src', $url_relative);
+        $url_relative = swp_make_link_protocol_relative($url);
+        // $url_relative = $url;
+        $image->setAttribute('src', $url_relative);
 
-        // add srcset if not 'size-full' image
-        if(strpos($image->getAttribute('class'),'size-full') === false){
-            $extension_pos = strrpos($url_relative, '.');
-            $src2x = substr($url_relative, 0, $extension_pos) . swp_retina_extension() . substr($url_relative, $extension_pos);
-            $srcset = $url_relative . ' 1x, ' . $src2x . ' 2x';
+        // add srcset if retina version exists
+        $img_pathinfo = wr2x_get_pathinfo_from_image_src($url);
+        $filepath = trailingslashit( ABSPATH ) . $img_pathinfo;
+        $potential_retina = wr2x_get_retina( $filepath );
+        if ( $potential_retina != null ) {
+            $retina_url = wr2x_from_system_to_url($potential_retina);
+            $retina_url = swp_make_link_protocol_relative($retina_url);
+            $srcset = $url_relative . ' 1x, ' . $retina_url . ' 2x';
             $image->setAttribute('srcset', $srcset);
         }
 
