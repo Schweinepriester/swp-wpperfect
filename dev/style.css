@@ -63,7 +63,7 @@ body {
 }
 
 .box-flex-image img{
-    display: block;
+    vertical-align: middle; /* from https://github.com/bendc/frontend-guidelines#flow */
 }
 
 .box-flex-image a,img{
