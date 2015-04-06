@@ -67,7 +67,9 @@ class WP_Image_Editor_Imagick_Swp extends WP_Image_Editor {
 			'flipimage',
 			'flopimage',
             'setinterlacescheme',
-            'stripimage'
+            'stripimage',
+            'getimageprofiles',
+            'profileimage'
 		);
 
 		// Now, test for deep requirements within Imagick.
@@ -229,7 +231,12 @@ class WP_Image_Editor_Imagick_Swp extends WP_Image_Editor {
 	 * @return boolean|WP_Error
 	 */
 	public function resize( $max_w, $max_h, $crop = false ) {
-        // $this->image->stripImage();
+        // from http://stackoverflow.com/questions/13646028/how-to-remove-exif-from-a-jpg-without-losing-image-quality :)
+        $profiles = $this->image->getImageProfiles("icc", true);
+        $this->image->stripImage();
+        if(!empty($profiles))
+            $this->image->profileImage("icc", $profiles['icc']);
+
 		if ( ( $this->size['width'] == $max_w ) && ( $this->size['height'] == $max_h ) )
 			return true;
 
