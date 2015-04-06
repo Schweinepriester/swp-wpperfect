@@ -62,7 +62,14 @@ function swp_modify_images($content){
 }
 
 function swp_theme_setup(){
-    add_image_size( 'extra-large', 1920, 1920);
+    update_option( 'thumbnail_size_w', 300 );
+    update_option( 'thumbnail_size_h', 300 );
+
+    // iphone 5(s) size
+    update_option( 'medium_size_w', 320 );
+    update_option( 'medium_size_h', 568 );
+
+    add_image_size( 'extra-large', 1920, 1200);
 }
 
 function my_custom_sizes( $sizes ) {
