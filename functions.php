@@ -3,9 +3,10 @@
 add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
 // add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 
-add_filter ( 'wp_image_editors', 'swp_image_editors');
+// use the modified image editor!
+add_filter( 'wp_image_editors', 'swp_image_editors');
 
-// Hook the function to the upload handler
+// hook the function to the upload handler
 add_action('wp_handle_upload', 'swp_uploadprogressive');
 
 add_filter( 'the_content', 'filter_p_images' );
