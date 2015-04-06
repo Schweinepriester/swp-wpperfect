@@ -3,8 +3,11 @@
 add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
 // add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 
+// Hook the function to the upload handler
+add_action('wp_handle_upload', 'swp_uploadprogressive');
+
 add_filter( 'the_content', 'filter_p_images' );
-add_filter( 'the_content', 'swp_modify_images' );
+// add_filter( 'the_content', 'swp_modify_images' );
 // add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
 add_action( 'after_setup_theme', 'swp_theme_setup' );
 add_filter( 'image_size_names_choose', 'my_custom_sizes' );
@@ -134,4 +137,10 @@ function fjarrett_get_attachment_id_by_url( $url ) {
 
     // Returns null if no attachment is found
     return $attachment[0];
+}
+
+function swp_uploadprogressive($image_data){
+    $image_editor = wp_get_image_editor($image_data['file']);
+    $saved_image = $image_editor->save($image_data['file']);
+    return $image_data;
 }
