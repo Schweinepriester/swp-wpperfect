@@ -3,6 +3,8 @@
 add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
 // add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 
+add_filter ( 'wp_image_editors', 'swp_image_editors');
+
 // Hook the function to the upload handler
 add_action('wp_handle_upload', 'swp_uploadprogressive');
 
@@ -137,6 +139,11 @@ function fjarrett_get_attachment_id_by_url( $url ) {
 
     // Returns null if no attachment is found
     return $attachment[0];
+}
+
+function swp_image_editors($image_editors){
+    require_once get_template_directory() . '/class-wp-image-editor-imagick-swp.php';
+    return array('WP_Image_Editor_Imagick_Swp');
 }
 
 function swp_uploadprogressive($image_data){
