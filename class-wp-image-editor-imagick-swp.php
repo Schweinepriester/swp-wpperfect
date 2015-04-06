@@ -229,7 +229,7 @@ class WP_Image_Editor_Imagick_Swp extends WP_Image_Editor {
 	 * @return boolean|WP_Error
 	 */
 	public function resize( $max_w, $max_h, $crop = false ) {
-        $this->image->stripImage();
+        // $this->image->stripImage();
 		if ( ( $this->size['width'] == $max_w ) && ( $this->size['height'] == $max_h ) )
 			return true;
 
