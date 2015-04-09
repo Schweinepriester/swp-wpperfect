@@ -1,7 +1,6 @@
 <?php
 
 add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
-// add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 
 // use the modified image editor!
 add_filter( 'wp_image_editors', 'swp_image_editors');
@@ -11,9 +10,11 @@ add_action('wp_handle_upload', 'swp_uploadprogressive');
 
 add_filter( 'the_content', 'filter_p_images' );
 // add_filter( 'the_content', 'swp_modify_images' );
-// add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
 add_action( 'after_setup_theme', 'swp_theme_setup' );
-add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+
+// legacy
+// add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
+// add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 
 function swp_make_link_protocol_relative($link){
     return preg_replace("(^https?:)", "", $link); // from http://stackoverflow.com/questions/4357668/how-do-i-remove-http-https-and-slash-from-user-input-in-php
@@ -25,9 +26,21 @@ function filter_p_images($content){
 
 function swp_modify_images($content){
     $document = new DOMDocument();
-    $document->LoadHTML($content);
+    $document->loadHTML($content);
     $images = $document->getElementsByTagName('img');
+
     foreach ($images as $image){
+        $imageHtml = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $document->saveHTML($image)));
+        $imageSrc = fjarrett_get_attachment_id_by_url($image->getAttribute('src'));
+        $imageSizePre = explode(' ', explode('size-', $image->getAttribute('class'))[1])[0];
+        $imageSize = $imageSizePre;
+        $imageNewString = tevkori_extend_image_tag($imageHtml, $imageSrc, "", "", "", "", $imageSize, "");
+        error_log($imageNewString);
+        $imageNew = $document->createDocumentFragment();
+        $imageNew->appendXML($imageNewString);
+        $image->parentNode->replaceChild($imageNew, $image);
+        continue;
+
         $filename = $image->getAttribute('src'); // legacy
         $url = $filename;
         // $attachment_id = fjarrett_get_attachment_id_by_url($url);
@@ -65,11 +78,22 @@ function swp_theme_setup(){
     update_option( 'thumbnail_size_w', 300 );
     update_option( 'thumbnail_size_h', 300 );
 
-    // iphone 5(s) size
-    update_option( 'medium_size_w', 320 );
-    update_option( 'medium_size_h', 568 );
+    // TODO thumbnail @2x?
 
-    add_image_size( 'extra-large', 1920, 1200);
+    // iphone 5(s) size
+    $medium_width = 320;
+    $medium_height = 568;
+    update_option( 'medium_size_w', $medium_width );
+    update_option( 'medium_size_h', $medium_height );
+
+    add_image_size( 'medium@2x', $medium_width*2, $medium_height*2);
+
+    update_option( 'large_size_w', 1024 );
+    update_option( 'large_size_h', 1024 );
+
+    add_image_size( 'larger', 1500, 1500);
+
+    add_image_size( 'extra-large', 2048, 2048);
 }
 
 function my_custom_sizes( $sizes ) {
