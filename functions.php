@@ -174,7 +174,7 @@ function fjarrett_get_attachment_id_by_url( $url ) {
 }
 
 function swp_image_editors($image_editors){
-    require_once get_template_directory() . '/class-wp-image-editor-imagick-swp.php';
+    require_once get_stylesheet_directory() . '/class-wp-image-editor-imagick-swp.php';
     return array('WP_Image_Editor_Imagick_Swp');
 }
 
