@@ -7,12 +7,12 @@
 - Link: <https://wordpress.org/plugins/ricg-responsive-images/>
 - Why: srcset (functions)
 
-### NOPE
-
-#### EWWW Image Optimizer
+### EWWW Image Optimizer
 
 - Link: <https://wordpress.org/plugins/ewww-image-optimizer/changelog/>
-- Why: Progressive JPEGs, avoiding GD (handles color spaces wrong)
+- Why: better jpegs
+
+### NOPE
 
 #### WP Retina 2x
 
