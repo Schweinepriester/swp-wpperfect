@@ -3,10 +3,10 @@ var paths = {
     css: './dev/*.css'
 }
 
-gulp.task('default', ['autoprefixer']);
+gulp.task('default', ['css']);
 
 gulp.task('watch', function(){
-    gulp.watch(paths.css, ['autoprefixer']);
+    gulp.watch(paths.css, ['css']);
 });
 
 gulp.task('less', function () {
@@ -20,14 +20,20 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('autoprefixer', function () {
-    var postcss      = require('gulp-postcss');
-    var sourcemaps   = require('gulp-sourcemaps');
+gulp.task('css', function () {
+    var postcss = require('gulp-postcss');
+    var sourcemaps = require('gulp-sourcemaps');
     var autoprefixer = require('autoprefixer-core');
+    var csswring = require('csswring');
+
+    var processors = [
+        autoprefixer({browsers: ['last 2 version']}),
+        csswring
+    ];
 
     return gulp.src(paths.css)
         .pipe(sourcemaps.init())
-        .pipe(postcss([ autoprefixer({ browsers: ['last 2 version'] }) ]))
+        .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./'));
 });
