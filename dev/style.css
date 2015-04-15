@@ -7,6 +7,7 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5vh;
 }
 
 .side-header h1{
@@ -103,6 +104,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-.side-header, article:not(:last-of-type) {
-    margin-bottom: 5vh;
+article:not(:last-of-type) {
+    margin-bottom: 8vh;
+}
+
+.entry-footer{
+    color: lightgrey;
+    text-align: center;
 }

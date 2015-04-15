@@ -14,9 +14,9 @@
                     <?php the_content(); ?>
                 </div>
                 <footer class="entry-footer">
-                    <div>
-                        <?php echo get_the_date(); ?>, <?php the_time(); ?> von <?php the_author(); ?>
-                    </div>
+                    <p>
+                        <time datetime="<?php the_time('c'); ?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <span><?php the_author(); ?></span>
+                    </p>
                 </footer>
             </article>
         <?php
