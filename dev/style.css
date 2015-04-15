@@ -40,7 +40,7 @@ body {
     display: inline;
 }
 .side-header nav li:not(:last-of-type){
-    margin-right: 1vw;
+    margin-right: calc(8px + 0.5vw);
 }
 
 .side-header nav a{
