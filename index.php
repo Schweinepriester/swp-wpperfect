@@ -15,7 +15,7 @@
                 </div>
                 <footer class="entry-footer">
                     <p>
-                        <time datetime="<?php the_time('c'); ?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <span><?php the_author(); ?></span>
+                        <time datetime="<?php the_time('c'); // TODO fix the damn datetime oO ?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <span><?php the_author(); ?></span>
                     </p>
                 </footer>
             </article>
