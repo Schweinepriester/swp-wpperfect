@@ -112,3 +112,20 @@ article:not(:last-of-type) {
     color: lightgrey;
     text-align: center;
 }
+
+/* dirty */
+
+.slideshow-wrapper{
+    max-width: initial !important; /* TODO */
+    display: block;
+}
+
+.slideshow-wrapper a{
+    float: left;
+}
+
+.slideshow-wrapper a img {
+    max-width: 50vw;
+    max-height: 50vh;
+    vertical-align: middle;
+}
