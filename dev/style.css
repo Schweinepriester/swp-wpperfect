@@ -1,5 +1,13 @@
+:root{
+    --colorbackground: #FFFFFF;
+    --colorlink: #16a085;
+    --colorlinkhover: #1abc9c;
+    --colorlinkvisited: #95a5a6;
+}
+
 body {
     font-family: 'Fira Sans', sans-serif;
+    background-color: var(--colorbackground);
 }
 
 .side-header{
@@ -97,6 +105,30 @@ img{
 a {
     color: inherit;
     text-decoration: none;
+    transition: all 150ms ease-in-out 0s;
+}
+
+.entry-content p a{
+    border-bottom: 1px dotted;
+    color: var(--colorlink);
+}
+
+.entry-content p a:visited{
+    color: var(--colorlinkvisited);
+}
+
+a:hover {
+    color: var(--colorlinkhover);
+}
+
+nav a:hover {
+    background-color: var(--colorlinkhover);
+    color: var(--colorbackground);
+}
+
+.entry-content p a:hover{
+    border: none;
+    background-color: color(var(--colorlinkhover) a(20%));
 }
 
 h1, h2, h3, h4, h5, h6 {

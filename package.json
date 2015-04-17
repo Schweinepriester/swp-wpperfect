@@ -9,7 +9,9 @@
     "gulp-less": "^3.0.2",
     "gulp-postcss": "^5.1.1",
     "gulp-sourcemaps": "^1.5.1",
-    "npm-check-updates": "^1.5.1"
+    "npm-check-updates": "^1.5.1",
+    "postcss-color-function": "^1.2.0",
+    "postcss-custom-properties": "^3.3.0"
   },
   "private": true
 }

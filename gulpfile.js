@@ -25,10 +25,14 @@ gulp.task('css', function () {
     var sourcemaps = require('gulp-sourcemaps');
     var autoprefixer = require('autoprefixer-core');
     var csswring = require('csswring');
+    var customProperties = require("postcss-custom-properties");
+    var colorFunction = require("postcss-color-function");
 
     var processors = [
         autoprefixer({browsers: ['last 2 version']}),
-        csswring
+        csswring,
+        customProperties(),
+        colorFunction()
     ];
 
     return gulp.src(paths.css)
