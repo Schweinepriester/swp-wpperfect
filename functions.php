@@ -1,24 +1,20 @@
 <?php
 
 add_theme_support( 'automatic-feed-links' ); // activate wordpress feeds
+// add_theme_support('soil-relative-urls');
 
 // use the modified image editor!
 add_filter( 'wp_image_editors', 'swp_image_editors');
 
 // hook the function to the upload handler
-add_action('wp_handle_upload', 'swp_uploadprogressive');
+add_action('media_handle_upload', 'swp_uploadprogressive');
 
 add_filter( 'the_content', 'filter_p_images' );
 // add_filter( 'the_content', 'swp_modify_images' );
 add_action( 'after_setup_theme', 'swp_theme_setup' );
 
 // legacy
-// add_filter( 'wp_get_attachment_url', 'swp_make_link_protocol_relative' ); // make all attachments urls protocol relative
 // add_filter( 'image_size_names_choose', 'my_custom_sizes' );
-
-function swp_make_link_protocol_relative($link){
-    return preg_replace("(^https?:)", "", $link); // from http://stackoverflow.com/questions/4357668/how-do-i-remove-http-https-and-slash-from-user-input-in-php
-}
 
 function filter_p_images($content){
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
@@ -99,7 +95,7 @@ function swp_theme_setup(){
     add_image_size( 'extra-large', 2048, 2048);
 }
 
-function my_custom_sizes( $sizes ) {
+function swp_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'extra-large' => __( 'Extra Large' ),
     ) );

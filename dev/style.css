@@ -131,6 +131,11 @@ nav a:hover {
     background-color: color(var(--colorlinkhover) a(20%));
 }
 
+a[href^="http://"]:not([href*="localhost"]):after,
+a[href^="https://"]:not([href*="localhost"]):after{
+    /* content: url("http://upload.wikimedia.org/wikipedia/commons/4/44/Icon_External_Link.svg"); */
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
