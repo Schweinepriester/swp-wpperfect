@@ -46,7 +46,7 @@ body {
 }
 
 .side-header nav li{
-    display: inline;
+    display: inline-block;
 }
 .side-header nav li:not(:last-of-type){
     margin-right: calc(8px + 0.5vw);
@@ -55,6 +55,7 @@ body {
 .side-header nav a{
     padding: 5px;
     display: flex;
+    border-radius: 3px;
 }
 
 [class^="entry-"]:not(.entry-title) > *:not(.box-flex-image){
