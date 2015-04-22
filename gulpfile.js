@@ -27,12 +27,14 @@ gulp.task('css', function () {
     var csswring = require('csswring');
     var customProperties = require("postcss-custom-properties");
     var colorFunction = require("postcss-color-function");
+    var selector = require('postcss-custom-selectors');
 
     var processors = [
         autoprefixer({browsers: ['last 2 version']}),
         csswring,
         customProperties(),
-        colorFunction()
+        colorFunction(),
+        selector()
     ];
 
     return gulp.src(paths.css)

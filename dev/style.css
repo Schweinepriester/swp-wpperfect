@@ -5,6 +5,8 @@
     --colorlinkvisited: #95a5a6;
 }
 
+@custom-selector --heading h1, h2, h3, h4, h5, h6;
+
 body {
     font-family: 'Fira Sans', sans-serif;
     background-color: var(--colorbackground);
@@ -136,7 +138,7 @@ a[href^="https://"]:not([href*="localhost"]):after{
     /* content: url("http://upload.wikimedia.org/wikipedia/commons/4/44/Icon_External_Link.svg"); */
 }
 
-h1, h2, h3, h4, h5, h6 {
+--heading {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     text-align: center;
