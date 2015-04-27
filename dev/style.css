@@ -162,7 +162,7 @@ article:not(:last-of-type) {
 
 .slideshow-wrapper a{
     float: left;
-    max-height: 50vh;
+    height: 50vh;
 }
 
 .slideshow-wrapper a img {
