@@ -5,7 +5,7 @@
     --colorlinkvisited: #95a5a6;
 }
 
-@custom-selector --heading h1, h2, h3, h4, h5, h6;
+@custom-selector --heading h1,h2,h3,h4,h5,h6;
 
 body {
     font-family: 'Fira Sans', sans-serif;
@@ -58,6 +58,10 @@ body {
     padding: 5px;
     display: flex;
     border-radius: 3px;
+}
+
+.tiled-gallery{
+    /* max-width: 1024px !important; */
 }
 
 [class^="entry-"]:not(.entry-title) > *:not(.box-flex-image){
@@ -135,7 +139,7 @@ nav a:hover {
 
 a[href^="http://"]:not([href*="localhost"]):after,
 a[href^="https://"]:not([href*="localhost"]):after{
-    /* content: url("http://upload.wikimedia.org/wikipedia/commons/4/44/Icon_External_Link.svg"); */
+    /* content: url("http://localhost/wordpress/wp-content/themes/swp-wpperfect/iconic/smart/external-link.svg"); */
 }
 
 --heading {
