@@ -16,6 +16,10 @@ add_action( 'after_setup_theme', 'swp_theme_setup' );
 // legacy
 // add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 
+// from http://antsanchez.com/remove-new-wordpress-emoji-support/
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
 function filter_p_images($content){
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
 }
