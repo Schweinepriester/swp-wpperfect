@@ -114,12 +114,13 @@ a {
     transition: all 150ms ease-in-out 0s;
 }
 
-.entry-content p a{
-    border-bottom: 1px dotted;
+.entry-content a{
+    /* border-bottom: 1px dotted; */
+    text-decoration: underline;
     color: var(--colorlink);
 }
 
-.entry-content p a:visited{
+.entry-content a:visited{
     color: var(--colorlinkvisited);
 }
 
@@ -132,8 +133,7 @@ nav a:hover {
     color: var(--colorbackground);
 }
 
-.entry-content p a:hover{
-    border: none;
+.entry-content a:hover{
     background-color: color(var(--colorlinkhover) a(20%));
 }
 
