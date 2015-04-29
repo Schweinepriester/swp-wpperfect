@@ -174,5 +174,4 @@ article:not(:last-of-type) {
 .slideshow-wrapper a img {
     max-width: 100%;
     height: 100%;
-    /* vertical-align: middle; */
 }

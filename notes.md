@@ -16,5 +16,10 @@
 
 #### EWWW Image Optimizer
 
-- Link: <https://wordpress.org/plugins/ewww-image-optimizer/changelog/>
+- Link: <https://wordpress.org/plugins/ewww-image-optimizer/>
 - Why: better jpegs
+
+#### StripTease
+
+- Link: <https://wordpress.org/plugins/striptease/>
+- Why: remove anchor from more
