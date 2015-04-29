@@ -139,7 +139,7 @@ nav a:hover {
 
 a[href^="http://"]:not([href*="localhost"]):after,
 a[href^="https://"]:not([href*="localhost"]):after{
-    /* content: url("http://localhost/wordpress/wp-content/themes/swp-wpperfect/iconic/smart/external-link.svg"); */
+    content: url("/wp-content/themes/swp-wpperfect/iconic/smart/external-link.svg");
 }
 
 --heading {
