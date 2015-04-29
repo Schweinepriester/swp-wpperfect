@@ -164,6 +164,7 @@ article:not(:last-of-type) {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .slideshow-wrapper a{
