@@ -1,8 +1,8 @@
 :root{
     --colorbackground: #FFFFFF;
-    --colorlink: #16a085;
+    --colorlink: #2980b9;
     --colorlinkhover: #1abc9c;
-    --colorlinkvisited: #95a5a6;
+    --colorlinkvisited: #8e44ad;
 }
 
 @custom-selector :--heading h1,h2,h3,h4,h5,h6;
@@ -127,7 +127,7 @@ a:visited:hover, a:hover {
     color: var(--colorlinkhover);
 }
 
-nav a:hover {
+nav a:visited:hover, nav a:hover {
     background-color: var(--colorlinkhover);
     color: var(--colorbackground);
 }
