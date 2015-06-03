@@ -5,7 +5,7 @@
     --colorlinkvisited: #95a5a6;
 }
 
-@custom-selector --heading h1,h2,h3,h4,h5,h6;
+@custom-selector :--heading h1,h2,h3,h4,h5,h6;
 
 body {
     font-family: 'Fira Sans', sans-serif;
@@ -115,7 +115,6 @@ a {
 }
 
 .entry-content a{
-    /* border-bottom: 1px dotted; */
     text-decoration: underline;
     color: var(--colorlink);
 }
@@ -124,7 +123,7 @@ a {
     color: var(--colorlinkvisited);
 }
 
-a:hover {
+a:visited:hover, a:hover {
     color: var(--colorlinkhover);
 }
 
@@ -133,16 +132,12 @@ nav a:hover {
     color: var(--colorbackground);
 }
 
-.entry-content a:hover{
-    background-color: color(var(--colorlinkhover) a(20%));
-}
-
 a[href^="http://"]:not([href*="localhost"]):after,
 a[href^="https://"]:not([href*="localhost"]):after{
     /* content: url("/wp-content/themes/swp-wpperfect/iconic/smart/external-link.svg"); */
 }
 
---heading {
+:--heading {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     text-align: center;
