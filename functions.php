@@ -235,11 +235,16 @@ function my_post_gallery($output, $attr) {
         // Fetch the thumbnail (or full image, it's up to you)
 //      $img = wp_get_attachment_image_src($id, 'medium');
 //      $img = wp_get_attachment_image_src($id, 'my-custom-image-size');
-        $img = wp_get_attachment_image_src($id, 'large');
+
+        /*$img = wp_get_attachment_image_src($id, 'large');
 
         $output .= "<a>\n";
         $output .= tevkori_extend_image_tag("<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n", $id, null, null, null, null, 'large', null);
-        $output .= "</a>\n";
+        $output .= "</a>\n";*/
+
+        // $output .= "<a>\n";
+        $output .= wp_get_attachment_link( $id, 'full');
+        // $output .= "</a>\n";
     }
 
     // $output .= "</ul>\n";
