@@ -73,7 +73,7 @@ body {
 
 .entry-content p, .entry-content ul, .entry-content ol, .entry-content blockquote, .entry-content dl{
     min-width: 35ch;
-    font-size: calc(13px + 0.4vw);
+    font-size: calc(14px + 0.4vw);
     line-height: 1.6;
     /* text-align: justify; TODO maybe? */
 }
