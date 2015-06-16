@@ -10,9 +10,9 @@
     "gulp-postcss": "^5.1.8",
     "gulp-sourcemaps": "^1.5.2",
     "npm-check-updates": "^1.5.1",
-    "postcss-color-function": "^1.2.0",
+    "postcss-color-function": "^1.3.0",
     "postcss-custom-properties": "^3.3.0",
-    "postcss-custom-selectors": "^2.0.1"
+    "postcss-custom-selectors": "^2.1.0"
   },
   "private": true
 }
