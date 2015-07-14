@@ -12,6 +12,7 @@ add_action('media_handle_upload', 'swp_uploadprogressive');
 add_filter( 'the_content', 'filter_p_images' );
 // add_filter( 'the_content', 'swp_modify_images' );
 add_action( 'after_setup_theme', 'swp_theme_setup' );
+add_action( 'send_headers', 'swp_strict_transport_security' );
 
 // legacy
 // add_filter( 'image_size_names_choose', 'my_custom_sizes' );
@@ -19,6 +20,16 @@ add_action( 'after_setup_theme', 'swp_theme_setup' );
 // from http://antsanchez.com/remove-new-wordpress-emoji-support/
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+/**
+ * Enables the HTTP Strict Transport Security (HSTS) header.
+ * From <https://thomasgriffin.io/enable-http-strict-transport-security-hsts-wordpress/>
+ *
+ * @since 1.0.0
+ */
+function swp_strict_transport_security() {
+    header( 'Strict-Transport-Security: max-age=10886400' );
+}
 
 function filter_p_images($content){
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
