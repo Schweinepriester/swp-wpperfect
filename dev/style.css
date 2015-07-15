@@ -55,9 +55,9 @@ body {
 }
 
 .side-header nav a{
-    padding: 5px;
+    padding: 5px 10px;
     display: flex;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .tiled-gallery{
