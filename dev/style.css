@@ -45,6 +45,11 @@ body {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    /*
+    overflow: scroll;
+    white-space: nowrap;
+    width: 100%;
+    */
 }
 
 .side-header nav li{
