@@ -28,7 +28,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
  * @since 1.0.0
  */
 function swp_strict_transport_security() {
-    header( 'Strict-Transport-Security: max-age=15768000; includeSubDomains; preload' );
+    header( 'Strict-Transport-Security: max-age=15768000; includeSubDomains' );
 }
 
 function filter_p_images($content){
