@@ -113,22 +113,6 @@ function swp_custom_sizes( $sizes ) {
     ) );
 }
 
-function swp_retina_extension($dot = false){
-    $retina_extension = '@2x';
-    if($dot){
-        $retina_extension .= '.';
-    }
-    return $retina_extension;
-}
-
-function swp_lowres_extension($dot = false){
-    $lowres_extension = '-lowres';
-    if($dot){
-        $lowres_extension .= '.';
-    }
-    return $lowres_extension;
-}
-
 // Based on http://wordpress.stackexchange.com/questions/6645/turn-a-url-into-an-attachment-post-id
 function swp_get_attachment_id($file){
     $query = array(
