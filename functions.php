@@ -2,6 +2,8 @@
 
 // activate wordpress feeds
 add_theme_support( 'automatic-feed-links' );
+// let wordpress handle <title>
+add_action( 'after_setup_theme', 'theme_slug_setup' );
 
 // use the modified image editor!
 add_filter( 'wp_image_editors', 'swp_image_editors');
@@ -17,6 +19,11 @@ add_action( 'send_headers', 'swp_strict_transport_security' );
 // from http://antsanchez.com/remove-new-wordpress-emoji-support/
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+// from https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
+function theme_slug_setup() {
+    add_theme_support( 'title-tag' );
+}
 
 /**
  * Enables the HTTP Strict Transport Security (HSTS) header.
