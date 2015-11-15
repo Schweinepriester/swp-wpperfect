@@ -6,7 +6,7 @@ add_theme_support( 'automatic-feed-links' );
 add_action( 'after_setup_theme', 'theme_slug_setup' );
 
 // use the modified image editor!
-add_filter( 'wp_image_editors', 'swp_image_editors');
+// add_filter( 'wp_image_editors', 'swp_image_editors');
 
 // hook the function to the upload handler
 add_action('media_handle_upload', 'swp_uploadprogressive');

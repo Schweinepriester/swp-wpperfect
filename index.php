@@ -21,9 +21,10 @@
                     </p>
                 </footer>
             </article>
-        <?php endwhile; ?>
-        <p><?php posts_nav_link(); ?></p>
         <?php
+        endwhile;
+        // <p><?php posts_nav_link(); </p>
+
     else :
         // TODO
     endif;
