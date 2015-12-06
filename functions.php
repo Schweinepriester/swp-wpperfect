@@ -15,6 +15,7 @@ add_filter( 'the_content', 'filter_p_images' );
 // add_filter( 'the_content', 'swp_modify_images' );
 add_action( 'after_setup_theme', 'swp_theme_setup' );
 add_action( 'send_headers', 'swp_strict_transport_security' );
+add_action( 'send_headers', 'swp_hpkp' );
 
 // from http://antsanchez.com/remove-new-wordpress-emoji-support/
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -33,6 +34,10 @@ function theme_slug_setup() {
  */
 function swp_strict_transport_security() {
     header( 'Strict-Transport-Security: max-age=15768000; includeSubDomains' );
+}
+
+function swp_hpkp(){
+    include ABSPATH.'/../swp_wp_extra/swp_hpkp.php';
 }
 
 function filter_p_images($content){
