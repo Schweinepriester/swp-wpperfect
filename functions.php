@@ -37,7 +37,7 @@ function swp_strict_transport_security() {
 }
 
 function swp_hpkp(){
-    include ABSPATH.'/../swp_wp_extra/swp_hpkp.php';
+    include trailingslashit(ABSPATH).'/../swp_wp_extra/swp_hpkp.php';
 }
 
 function filter_p_images($content){
