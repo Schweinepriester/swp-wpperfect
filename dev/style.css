@@ -74,6 +74,7 @@ body {
       padding: 0.25em 0.5em;
       display: flex;
       border-radius: 2px;
+      font-size: calc(14px + 0.2vw + 0.2vh);
     }
   }
 }
