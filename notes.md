@@ -9,11 +9,6 @@
 
 ### Plugins
 
-#### RICG Responsive Images
-
-- Link: <https://wordpress.org/plugins/ricg-responsive-images/>
-- Why: srcset (functions)
-
 #### EWWW Image Optimizer
 
 - Link: <https://wordpress.org/plugins/ewww-image-optimizer/>
