@@ -36,9 +36,9 @@ function swp_security_header() {
 
     // X-Xss-Protection - from <https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection>
     header( 'X-Xss-Protection: 1; mode=block' );
-    
+
     // X-Content-Type-Options - from <https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options>
-    header( 'X-Content-Type-Options nosniff' );
+    header( 'X-Content-Type-Options: nosniff' );
 }
 
 function swp_hpkp(){
