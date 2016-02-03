@@ -9,6 +9,10 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 
 /* Styles */
+::selection {
+  color: --colorlinkhover;
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
