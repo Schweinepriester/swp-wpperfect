@@ -10,7 +10,7 @@
 
 /* Styles */
 ::selection {
-  color: var(--colorlinkhover);
+  background-color: var(--colorlinkhover);
 }
 
 html {
