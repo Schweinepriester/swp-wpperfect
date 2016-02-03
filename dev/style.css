@@ -11,6 +11,7 @@
 /* Styles */
 ::selection {
   background-color: var(--colorlinkhover);
+  color: var(--colorbackground);
 }
 
 html {
