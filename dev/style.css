@@ -28,6 +28,10 @@ body {
   background-color: var(--colorbackground);
 }
 
+pre {
+  overflow-y: scroll; // kinda borrowed from normalize.css before 4.x, primarily for mobile
+}
+
 .side-header {
   display: flex;
   justify-content: flex-start;
