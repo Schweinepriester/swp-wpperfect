@@ -7,10 +7,10 @@ add_theme_support( 'automatic-feed-links' );
 add_action( 'after_setup_theme', 'theme_slug_setup' );
 
 // use the modified image editor
-add_filter( 'wp_image_editors', 'swp_image_editors');
+//add_filter( 'wp_image_editors', 'swp_image_editors');
 
 // hook the function to the upload handler
-add_action('media_handle_upload', 'swp_uploadprogressive');
+//add_action('media_handle_upload', 'swp_uploadprogressive');
 
 add_filter( 'the_content', 'filter_p_images' );
 
@@ -80,16 +80,16 @@ function swp_custom_sizes( $sizes ) {
     ) );
 }
 
-function swp_image_editors($image_editors){
+/*function swp_image_editors($image_editors){
     require_once get_stylesheet_directory() . '/class-wp-image-editor-imagick-swp.php';
     return array('WP_Image_Editor_Imagick_Swp');
-}
+}*/
 
-function swp_uploadprogressive($image_data){
+/*function swp_uploadprogressive($image_data){
     $image_editor = wp_get_image_editor($image_data['file']);
     $saved_image = $image_editor->save($image_data['file']);
     return $image_data;
-}
+}*/
 
 // from http://stackoverflow.com/questions/19802157/change-wordpress-default-gallery-output
 add_filter('post_gallery', 'my_post_gallery', 10, 2);
