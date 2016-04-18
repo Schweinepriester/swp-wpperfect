@@ -3,12 +3,12 @@
   "description": "The perfect wordpress theme?",
   "author": "Kai Hollberg",
   "devDependencies": {
-    "autoprefixer": "^6.2.3",
-    "cssnano": "^3.4.0",
-    "gulp": "^3.8.11",
-    "gulp-postcss": "^6.0.1",
-    "gulp-sourcemaps": "^1.5.2",
-    "postcss-color-function": "^2.0.0",
+    "autoprefixer": "^6.3.6",
+    "cssnano": "^3.5.2",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "postcss-color-function": "^2.0.1",
     "postcss-custom-properties": "^5.0.0",
     "postcss-custom-selectors": "^3.0.0",
     "postcss-nested": "^1.0.0"
