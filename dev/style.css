@@ -29,7 +29,7 @@ body {
 }
 
 pre {
-  overflow-y: scroll; /* kinda borrowed from normalize.css before 4.x, primarily for mobile */
+  overflow-y: auto; /* kinda borrowed from normalize.css before 4.x, primarily for mobile */
 }
 
 .side-header {
