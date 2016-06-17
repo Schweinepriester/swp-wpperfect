@@ -29,7 +29,7 @@ body {
 }
 
 pre {
-  overflow-y: auto; /* kinda borrowed from normalize.css before 4.x, primarily for mobile */
+  overflow-x: auto; /* kinda borrowed from normalize.css before 4.x, primarily for mobile */
 }
 
 .side-header {
