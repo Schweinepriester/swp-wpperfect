@@ -23,12 +23,13 @@ gulp.task('css', () => {
         autoprefixer({ browsers: ['last 1 version'] }),
         customProperties(),
         colorFunction(),
-        selector()
+        selector(),
+        require('postcss-strip-inline-comments')
     ];
 
     return gulp.src(paths.css)
         .pipe(sourcemaps.init())
-        .pipe(postcss(processors))
+        .pipe(postcss(processors, { syntax: require('postcss-scss') }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./'));
 });

@@ -13,7 +13,9 @@
     "postcss-color-function": "^2.0.1",
     "postcss-custom-properties": "^5.0.0",
     "postcss-custom-selectors": "^3.0.0",
-    "postcss-nested": "^1.0.0"
+    "postcss-nested": "^1.0.0",
+    "postcss-scss": "^0.3.0",
+    "postcss-strip-inline-comments": "^0.1.5"
   },
   "private": true
 }
