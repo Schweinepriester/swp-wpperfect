@@ -24,10 +24,10 @@
         <?php
         endwhile;
         // <p><?php posts_nav_link(); </p>
-
     else :
         // TODO
     endif;
     ?>
 </main>
 <?php get_footer(); ?>
+

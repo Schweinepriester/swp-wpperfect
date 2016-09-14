@@ -1,26 +1,26 @@
-var gulp = require('gulp');
-var paths = {
+const gulp = require('gulp');
+const paths = {
     css: './dev/*.css'
-}
+};
 
 gulp.task('default', ['css']);
 
-gulp.task('watch', function(){
+gulp.task('watch', () => {
     gulp.watch(paths.css, ['css']);
 });
 
-gulp.task('css', function () {
-    var postcss = require('gulp-postcss');
-    var sourcemaps = require('gulp-sourcemaps');
-    var autoprefixer = require('autoprefixer');
-    var customProperties = require("postcss-custom-properties");
-    var colorFunction = require("postcss-color-function");
-    var selector = require('postcss-custom-selectors');
-    var nested = require('postcss-nested');
+gulp.task('css', () => {
+    const postcss = require('gulp-postcss');
+    const sourcemaps = require('gulp-sourcemaps');
+    const autoprefixer = require('autoprefixer');
+    const customProperties = require('postcss-custom-properties');
+    const colorFunction = require('postcss-color-function');
+    const selector = require('postcss-custom-selectors');
+    const nested = require('postcss-nested');
 
-    var processors = [
+    const processors = [
         nested,
-        autoprefixer({browsers: ['last 2 version']}),
+        autoprefixer({ browsers: ['last 1 version'] }),
         customProperties(),
         colorFunction(),
         selector()

@@ -20,19 +20,15 @@ body {
   background-color: #FFFFFF;
 }
 
+pre {
+  overflow-x: auto; /* kinda borrowed from normalize.css before 4.x, primarily for mobile */
+}
+
 .side-header {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 5vh;
 }
 
@@ -50,12 +46,8 @@ body {
   border-width: 1px 0;
   border-color: lightgrey;
   width: 100%;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding: 10px 0;
 }
 
@@ -63,15 +55,9 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  flex-wrap: wrap;
   display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .side-header nav li {
@@ -84,10 +70,9 @@ body {
 
 .side-header nav a {
   padding: 0.25em 0.5em;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border-radius: 2px;
+  font-size: calc(14px + 0.2vw + 0.2vh);
 }
 
 
@@ -115,12 +100,8 @@ body {
 }
 
 .box-flex-image {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   max-width: 100vw;
 }
 
@@ -149,19 +130,19 @@ a {
 
 .entry-content a {
   text-decoration: underline;
-  color: #2980b9;
+  color: #2980B9;
 }
 
 .entry-content a:visited {
-  color: #8e44ad;
+  color: #8E44AD;
 }
 
 a:visited:hover, a:hover {
-  color: #1abc9c;
+  color: #1ABC9C;
 }
 
 nav a:visited:hover, nav a:hover {
-  background-color: #1abc9c;
+  background-color: #1ABC9C;
   color: #FFFFFF;
 }
 
@@ -192,21 +173,11 @@ article:not(:last-of-type) {
 
 .slideshow-wrapper {
   max-width: initial !important; /* TODO */
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-align-content: flex-start;
-      -ms-flex-line-pack: start;
-          align-content: flex-start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
 }
 
 .slideshow-wrapper a {
