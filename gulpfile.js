@@ -1,9 +1,13 @@
 const gulp = require('gulp');
 const paths = {
-    css: './dev/*.css',
+    css: './src/*.css',
+    vendor: {
+        src: './css/vendor/*.css',
+        dist: './css/dist',
+    },
 };
 
-gulp.task('default', ['css']);
+gulp.task('default', ['css', 'vendorCSS']);
 
 gulp.task('watch', () => {
     gulp.watch(paths.css, ['css']);
@@ -32,4 +36,16 @@ gulp.task('css', () => {
         .pipe(postcss(processors, { syntax: require('postcss-scss') }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./'));
+});
+
+gulp.task('vendorCSS', () => {
+    const cssnano = require('gulp-cssnano');
+    const rename = require('gulp-rename');
+
+    return gulp.src(paths.vendor.src)
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(cssnano())
+        .pipe(gulp.dest(paths.vendor.dist));
 });

@@ -4,7 +4,7 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <!-- <link rel="profile" href="http://gmpg.org/xfn/11" /> !? -->
         <link rel="preconnect" href="<?php echo get_site_url(); ?>">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri (); ?>/css/normalize.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri (); ?>/css/dist/normalize.min.css" type="text/css" media="all" />
         <link rel="stylesheet" href="<?php echo get_template_directory_uri (); ?>/fonts/fira/fira.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:700|Lobster+Two:700italic">
         <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="screen" />
