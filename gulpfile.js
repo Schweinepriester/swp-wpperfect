@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const paths = {
-    css: './dev/*.css'
+    css: './dev/*.css',
 };
 
 gulp.task('default', ['css']);
@@ -24,7 +24,7 @@ gulp.task('css', () => {
         customProperties(),
         colorFunction(),
         selector(),
-        require('postcss-strip-inline-comments')
+        require('postcss-strip-inline-comments'),
     ];
 
     return gulp.src(paths.css)

@@ -96,10 +96,6 @@ pre {
   /* text-align: justify; TODO maybe? */
 }
 
-.entry-content ol, .entry-content ul {
-  padding-left: 2.2ch;
-}
-
 .entry-title {
   min-width: 15ch;
   max-width: 55ch !important; /* TODO fix!? */

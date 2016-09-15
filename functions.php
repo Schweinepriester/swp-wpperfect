@@ -6,13 +6,8 @@ add_theme_support( 'automatic-feed-links' );
 // let wordpress handle <title>
 add_action( 'after_setup_theme', 'theme_slug_setup' );
 
-// use the modified image editor
-//add_filter( 'wp_image_editors', 'swp_image_editors');
-
-// hook the function to the upload handler
-//add_action('media_handle_upload', 'swp_uploadprogressive');
-
-add_filter( 'the_content', 'filter_p_images' );
+// adjust DOM to my taste
+add_filter( 'the_content', 'swp_content' );
 
 add_action( 'after_setup_theme', 'swp_theme_setup' );
 add_action( 'send_headers', 'swp_security_header' );
@@ -45,8 +40,26 @@ function swp_hpkp(){
     // include get_home_path().'./../swp_wp_extra/swp_hpkp.php';
 }
 
-function filter_p_images($content){
-    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
+function swp_content($content)
+{
+    // TODO refactor that shit, using DOMXPath for all adjustments!
+    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
+
+    $doc = new DOMDocument();
+    libxml_use_internal_errors(true); // first found as solution for invalid element <mark>, which is valid HTML5 #phpfail
+    $doc->loadHtml($content);
+    $xpath = new DOMXPath($doc);
+    $tags = $xpath->query(
+        '//*[self::ul or self::ol]' // all <ul> and <ol>
+    );
+
+    foreach ($tags as $tag) {
+        $div = $doc->createElement('div');
+        $tag->parentNode->insertBefore($div, $tag);
+        $div->appendChild($tag);
+    }
+
+    return $doc->saveHTML();
 }
 
 if ( ! isset( $content_width ) )
@@ -79,17 +92,6 @@ function swp_custom_sizes( $sizes ) {
         'extra-large' => __( 'Extra Large' ),
     ) );
 }
-
-/*function swp_image_editors($image_editors){
-    require_once get_stylesheet_directory() . '/class-wp-image-editor-imagick-swp.php';
-    return array('WP_Image_Editor_Imagick_Swp');
-}*/
-
-/*function swp_uploadprogressive($image_data){
-    $image_editor = wp_get_image_editor($image_data['file']);
-    $saved_image = $image_editor->save($image_data['file']);
-    return $image_data;
-}*/
 
 // from http://stackoverflow.com/questions/19802157/change-wordpress-default-gallery-output
 add_filter('post_gallery', 'my_post_gallery', 10, 2);
