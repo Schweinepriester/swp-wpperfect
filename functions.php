@@ -47,7 +47,7 @@ function swp_content($content)
 
     $doc = new DOMDocument();
     libxml_use_internal_errors(true); // first found as solution for invalid element <mark>, which is valid HTML5 #phpfail
-    $doc->loadHtml($content);
+    $doc->loadHtml(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
     $xpath = new DOMXPath($doc);
     $tags = $xpath->query(
         '//*[self::ul or self::ol]' // all <ul> and <ol>
