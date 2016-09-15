@@ -42,7 +42,7 @@ function swp_hpkp(){
 
 function swp_content($content)
 {
-    // TODO refactor that shit, using DOMXPath for all adjustments!
+    // TODO refactor that shit, using DOMXPath for all adjustments! \m/
     $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
 
     $doc = new DOMDocument();
