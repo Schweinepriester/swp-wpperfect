@@ -42,21 +42,36 @@ function swp_hpkp(){
 
 function swp_content($content)
 {
-    // TODO refactor that shit, using DOMXPath for all adjustments! \m/
-    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
+    // TODO remove
+    // $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
 
+    // mostly from http://stackoverflow.com/questions/29303143/wrap-img-elements-in-div-but-allow-for-a-tags
     $doc = new DOMDocument();
     libxml_use_internal_errors(true); // first found as solution for invalid element <mark>, which is valid HTML5 #phpfail
     $doc->loadHtml(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+
     $xpath = new DOMXPath($doc);
-    $tags = $xpath->query(
+    $lists = $xpath->query(
         '//*[self::ul or self::ol]' // all <ul> and <ol>
     );
 
-    foreach ($tags as $tag) {
-        $div = $doc->createElement('div');
-        $tag->parentNode->insertBefore($div, $tag);
-        $div->appendChild($tag);
+    $divList = $doc->createElement('div');
+    foreach ($lists as $list) {
+        $div = $divList->cloneNode();
+        $list->parentNode->insertBefore($div, $list);
+        $div->appendChild($list);
+    }
+
+    $imagePs = $xpath->query(
+        '//*[self::p/child::img or self::p/child::a/child::img]'
+    );
+    
+    $divImages = $doc->createElement('div');
+    $divImages->setAttribute('class', 'box-flex-image');
+    foreach ($imagePs as $imageP) {
+        $div = $divImages->cloneNode();
+        $div->appendChild($imageP->firstChild);
+        $imageP->parentNode->replaceChild($div, $imageP);
     }
 
     return $doc->saveHTML();
