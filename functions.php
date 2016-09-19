@@ -42,8 +42,9 @@ function swp_hpkp(){
 
 function swp_content($content)
 {
-    // TODO remove
-    // $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<div class="box-flex-image">\1\2\3</div>', $content);
+    if (strlen($content) == 0) { // empty string?
+        return $content; // finish
+    }
 
     // mostly from http://stackoverflow.com/questions/29303143/wrap-img-elements-in-div-but-allow-for-a-tags
     $doc = new DOMDocument();

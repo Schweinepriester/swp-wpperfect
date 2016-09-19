@@ -159,7 +159,7 @@ article:not(:last-of-type) {
 }
 
 .entry-footer {
-  color: lightgrey;
+  color: darkgrey;
   text-align: center;
 }
 

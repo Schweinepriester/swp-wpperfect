@@ -22,7 +22,6 @@ html {
 
 body {
   font-family: 'Fira Sans', sans-serif;
-  // font-size: calc(14px + 0.4vw);
   font-size: calc(14px + 0.3vw + 0.3vh);
   line-height: 1.6;
   background-color: var(--colorbackground);
@@ -166,7 +165,7 @@ article:not(:last-of-type) {
 }
 
 .entry-footer {
-  color: lightgrey;
+  color: darkgrey;
   text-align: center;
 }
 
