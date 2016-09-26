@@ -20,6 +20,10 @@ pre {
   overflow-x: auto;
 }
 
+time {
+  cursor: help;
+}
+
 .side-header {
   display: flex;
   justify-content: flex-start;

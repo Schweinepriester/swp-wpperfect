@@ -31,6 +31,10 @@ pre {
   overflow-x: auto; // kinda borrowed from normalize.css before 4.x, primarily for mobile
 }
 
+time {
+  cursor: help;
+}
+
 .side-header {
   display: flex;
   justify-content: flex-start;

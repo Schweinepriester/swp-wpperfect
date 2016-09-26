@@ -11,7 +11,6 @@ add_filter( 'the_content', 'swp_content' );
 
 add_action( 'after_setup_theme', 'swp_theme_setup' );
 add_action( 'send_headers', 'swp_security_header' );
-add_action( 'send_headers', 'swp_hpkp' );
 
 // from http://antsanchez.com/remove-new-wordpress-emoji-support/
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -34,10 +33,6 @@ function swp_security_header() {
 
     // X-Content-Type-Options - from <https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options>
     header( 'X-Content-Type-Options: nosniff' );
-}
-
-function swp_hpkp(){
-    // include get_home_path().'./../swp_wp_extra/swp_hpkp.php';
 }
 
 function swp_content($content)

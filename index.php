@@ -18,9 +18,16 @@
                 <footer class="entry-footer">
                     <?php
                     if ( !is_page() ) :
+                        if ( has_tag() ) :
+                            ?>
+                            <p>
+                                <?php the_tags(''); ?>
+                            </p>
+                            <?php
+                        endif;
                         ?>
                         <p>
-                            <time datetime="<?php the_time('c');?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <span><?php the_author(); ?></span>
+                            <time title="<?php the_time('c'); // TODO fix fcking time?>" datetime="<?php the_time('c');?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <span><?php the_author(); ?></span>
                         </p>
                         <?php
                     endif;
