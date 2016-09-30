@@ -86,8 +86,25 @@ time {
   }
 }
 
+.columns {
+  display: flex;
+  justify-content: center;
 
-[class^="entry-"]:not(.entry-title) > *:not(.box-flex-image) {
+  img {
+    vertical-align: middle;
+  }
+
+  > *:not(:last-of-type) {
+    margin-right: 12px;
+  }
+
+  > *:not(:first-of-type) {
+    margin-left: 0;
+  }
+}
+
+// OLD BUT RELEVANT STUFF BELOW
+[class^="entry-"]:not(.entry-title) > *:not(.box-flex-image):not(.columns) {
   margin-right: auto;
   margin-left: auto;
   max-width: 75ch;

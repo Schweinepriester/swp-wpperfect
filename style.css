@@ -75,8 +75,23 @@ time {
   font-size: calc(14px + 0.2vw + 0.2vh);
 }
 
+.columns {
+  display: flex;
+  justify-content: center;
+}
 
-[class^="entry-"]:not(.entry-title) > *:not(.box-flex-image) {
+.columns img {
+  vertical-align: middle;
+}
+
+.columns > *:not(:last-of-type) {
+  margin-right: 12px;
+}
+
+.columns > *:not(:first-of-type) {
+  margin-left: 0;
+}
+[class^="entry-"]:not(.entry-title) > *:not(.box-flex-image):not(.columns) {
   margin-right: auto;
   margin-left: auto;
   max-width: 75ch;

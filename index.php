@@ -26,9 +26,7 @@
                             <?php
                         endif;
                         ?>
-                        <p>
-                            <time title="<?php the_time('c'); // TODO fix fcking time?>" datetime="<?php the_time('c');?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <span><?php the_author(); ?></span>
-                        </p>
+                        <p><time title="<?php the_time('c'); // TODO fix fcking time?>" datetime="<?php the_time('c');?>"><?php echo get_the_date(); ?>, <?php the_time(); ?></time> von <?php the_author(); ?></p>
                         <?php
                     endif;
                     ?>
