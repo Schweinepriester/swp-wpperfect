@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+
 const paths = {
     css: './src/*.css',
     vendor: {
