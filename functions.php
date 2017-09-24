@@ -33,7 +33,9 @@ function swp_security_header() {
 
     // X-Content-Type-Options - from <https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options>
     header( 'X-Content-Type-Options: nosniff' );
+
     // Referrer-Policy - from <https://scotthelme.co.uk/a-new-security-header-referrer-policy/>
+    header('Referrer-Policy: same-origin');
 }
 
 function swp_content($content)
