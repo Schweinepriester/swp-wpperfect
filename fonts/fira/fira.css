@@ -1,160 +1,160 @@
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Hair.woff2') format('woff2'),
-         url('woff/FiraSans-Hair.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Hair.woff2') format('woff2'),
+       url('woff/FiraSans-Hair.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-HairItalic.woff2') format('woff2'),
-         url('woff/FiraSans-HairItalic.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-HairItalic.woff2') format('woff2'),
+       url('woff/FiraSans-HairItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-UltraLight.woff2') format('woff2'),
-         url('woff/FiraSans-UltraLight.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-UltraLight.woff2') format('woff2'),
+       url('woff/FiraSans-UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-UltraLightItalic.woff2') format('woff2'),
-         url('woff/FiraSans-UltraLightItalic.woff') format('woff');
-    font-weight: 200;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-UltraLightItalic.woff2') format('woff2'),
+       url('woff/FiraSans-UltraLightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Light.woff2') format('woff2'),
-         url('woff/FiraSans-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Light.woff2') format('woff2'),
+       url('woff/FiraSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-LightItalic.woff2') format('woff2'),
-         url('woff/FiraSans-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-LightItalic.woff2') format('woff2'),
+       url('woff/FiraSans-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Regular.woff2') format('woff2'),
-         url('woff/FiraSans-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Regular.woff2') format('woff2'),
+       url('woff/FiraSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Italic.woff2') format('woff2'),
-         url('woff/FiraSans-Italic.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Italic.woff2') format('woff2'),
+       url('woff/FiraSans-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Medium.woff2') format('woff2'),
-         url('woff/FiraSans-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Medium.woff2') format('woff2'),
+       url('woff/FiraSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-MediumItalic.woff2') format('woff2'),
-         url('woff/FiraSans-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-MediumItalic.woff2') format('woff2'),
+       url('woff/FiraSans-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-SemiBold.woff2') format('woff2'),
-         url('woff/FiraSans-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-SemiBold.woff2') format('woff2'),
+       url('woff/FiraSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-SemiBoldItalic.woff2') format('woff2'),
-         url('woff/FiraSans-SemiBoldItalic.woff') format('woff');
-    font-weight: 600;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-SemiBoldItalic.woff2') format('woff2'),
+       url('woff/FiraSans-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Bold.woff2') format('woff2'),
-         url('woff/FiraSans-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Bold.woff2') format('woff2'),
+       url('woff/FiraSans-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-BoldItalic.woff2') format('woff2'),
-         url('woff/FiraSans-BoldItalic.woff') format('woff');
-    font-weight: 700;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-BoldItalic.woff2') format('woff2'),
+       url('woff/FiraSans-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-ExtraBold.woff2') format('woff2'),
-         url('woff/FiraSans-ExtraBold.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-ExtraBold.woff2') format('woff2'),
+       url('woff/FiraSans-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-ExtraBoldItalic.woff2') format('woff2'),
-         url('woff/FiraSans-ExtraBoldItalic.woff') format('woff');
-    font-weight: 800;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-ExtraBoldItalic.woff2') format('woff2'),
+       url('woff/FiraSans-ExtraBoldItalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-Heavy.woff2') format('woff2'),
-         url('woff/FiraSans-Heavy.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-Heavy.woff2') format('woff2'),
+       url('woff/FiraSans-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Sans';
-    src: url('woff2/FiraSans-HeavyItalic.woff2') format('woff2'),
-         url('woff/FiraSans-HeavyItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('woff2/FiraSans-HeavyItalic.woff2') format('woff2'),
+       url('woff/FiraSans-HeavyItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
 }
 
 
-@font-face{
-    font-family: 'Fira Mono';
-    src: url('woff2/FiraMono-Regular.woff2') format('woff2'),
-         url('woff/FiraMono-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Mono';
+  src: url('woff2/FiraMono-Regular.woff2') format('woff2'),
+       url('woff/FiraMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@font-face{
-    font-family: 'Fira Mono';
-    src: url('woff2/FiraMono-Bold.woff2') format('woff2'),
-         url('woff/FiraMono-Bold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+@font-face {
+  font-family: 'Fira Mono';
+  src: url('woff2/FiraMono-Bold.woff2') format('woff2'),
+       url('woff/FiraMono-Bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
 }
