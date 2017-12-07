@@ -1,5 +1,4 @@
 <?php
-
 // activate wordpress feeds
 add_theme_support( 'automatic-feed-links' );
 
@@ -15,6 +14,9 @@ add_action( 'send_headers', 'swp_security_header' );
 // from http://antsanchez.com/remove-new-wordpress-emoji-support/
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+// https://ewww.io/2016/03/30/ewww-image-optimizer-actions-hooks/
+//add_action( 'ewww_image_optimizer_post_optimization', 'swp_remove_metadata', 10, 2 );
 
 // from https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 function theme_slug_setup() {
@@ -172,4 +174,17 @@ function my_post_gallery($output, $attr) {
     $output .= "</div>\n";
 
     return $output;
+}
+
+function swp_remove_metadata( $file, $type ) {
+    // its not necessary to check for original image or not, as the original doesnt get optimized!
+    remove_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // remove EWWWIO_Imagick_Editor temporarily
+    $image = wp_get_image_editor( $file );
+    error_log(get_class($image));
+    if ( is_wp_error( $image ) ) {
+        error_log("fail");
+    }
+    $image->strip_meta(); // only imagick knows this // TODO this is protected in the class, i hacked it to be public…
+    $image->save();
+    add_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // add EWWWIO_Imagick_Editor back
 }

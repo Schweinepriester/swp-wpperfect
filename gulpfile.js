@@ -25,7 +25,7 @@ gulp.task('css', () => {
 
     const processors = [
         nested,
-        autoprefixer({ browsers: ['last 1 version'] }),
+        // autoprefixer({ browsers: ['last 1 version'] }), // TODO real definition
         customProperties(),
         colorFunction(),
         selector(),
