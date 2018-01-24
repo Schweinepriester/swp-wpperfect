@@ -1,4 +1,13 @@
 const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('autoprefixer');
+const customProperties = require('postcss-custom-properties');
+const colorFunction = require('postcss-color-function');
+const selector = require('postcss-custom-selectors');
+const nested = require('postcss-nested');
+const cssnano = require('gulp-cssnano');
+const rename = require('gulp-rename');
 
 const paths = {
     css: './src/*.css',
@@ -15,14 +24,6 @@ gulp.task('watch', () => {
 });
 
 gulp.task('css', () => {
-    const postcss = require('gulp-postcss');
-    const sourcemaps = require('gulp-sourcemaps');
-    const autoprefixer = require('autoprefixer');
-    const customProperties = require('postcss-custom-properties');
-    const colorFunction = require('postcss-color-function');
-    const selector = require('postcss-custom-selectors');
-    const nested = require('postcss-nested');
-
     const processors = [
         nested,
         // autoprefixer({ browsers: ['last 1 version'] }), // TODO real definition
@@ -35,14 +36,12 @@ gulp.task('css', () => {
     return gulp.src(paths.css)
         .pipe(sourcemaps.init())
         .pipe(postcss(processors, { syntax: require('postcss-scss') }))
+        .pipe(cssnano())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('vendorCSS', () => {
-    const cssnano = require('gulp-cssnano');
-    const rename = require('gulp-rename');
-
     return gulp.src(paths.vendor.src)
         .pipe(rename({
             suffix: '.min',

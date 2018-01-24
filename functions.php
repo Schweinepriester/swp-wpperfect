@@ -16,7 +16,7 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 // https://ewww.io/2016/03/30/ewww-image-optimizer-actions-hooks/
-//add_action( 'ewww_image_optimizer_post_optimization', 'swp_remove_metadata', 10, 2 );
+add_action( 'ewww_image_optimizer_post_optimization', 'swp_remove_metadata', 10, 2 );
 
 // from https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 function theme_slug_setup() {
@@ -177,14 +177,35 @@ function my_post_gallery($output, $attr) {
 }
 
 function swp_remove_metadata( $file, $type ) {
-    // its not necessary to check for original image or not, as the original doesnt get optimized!
-    remove_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // remove EWWWIO_Imagick_Editor temporarily
-    $image = wp_get_image_editor( $file );
-    error_log(get_class($image));
-    if ( is_wp_error( $image ) ) {
-        error_log("fail");
+    // its not necessary to check for original image or not, as the original doesnt get optimized! … or at least called here
+    // TODO or does it!?
+    error_log($type);
+    if ($type === 'image/jpeg') {
+        $image = new Imagick($file);
+
+        // set 4:2:0 per https://stackoverflow.com/a/27147203
+        $image->setSamplingFactors(array('2x2', '1x1', '1x1'));
+
+        // strip every profile like EXIF etc. except ICC for color profile
+        foreach ( $image->getImageProfiles( '*', true ) as $key => $value ) {
+            if ( $key !== 'icc' ) {
+                $image->removeImageProfile( $key );
+            }
+        }
+
+        $image->setImageCompressionQuality(85); // TODO set quality = wordpress
+
+        $image->setInterlaceScheme(Imagick::INTERLACE_PLANE); // progressive
+
+        $image->writeImage();
     }
-    $image->strip_meta(); // only imagick knows this // TODO this is protected in the class, i hacked it to be public…
-    $image->save();
-    add_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // add EWWWIO_Imagick_Editor back
+//    remove_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // remove EWWWIO_Imagick_Editor temporarily
+//    $image = wp_get_image_editor( $file );
+//    error_log(get_class($image));
+//    if ( is_wp_error( $image ) ) {
+//        error_log("fail");
+//    }
+//    $image->strip_meta(); // only imagick knows this // TODO this is protected in the class, i hacked it to be public…
+//    $image->save();
+//    add_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // add EWWWIO_Imagick_Editor back
 }
