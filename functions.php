@@ -49,7 +49,7 @@ function swp_content($content)
     // mostly from http://stackoverflow.com/questions/29303143/wrap-img-elements-in-div-but-allow-for-a-tags
     $doc = new DOMDocument();
     libxml_use_internal_errors(true); // first found as solution for invalid element <mark>, which is valid HTML5 #phpfail
-    $doc->loadHtml(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+    $doc->loadHtml(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
     $xpath = new DOMXPath($doc);
     $lists = $xpath->query(
