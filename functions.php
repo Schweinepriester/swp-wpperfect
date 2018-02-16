@@ -49,7 +49,8 @@ function swp_content($content)
     // mostly from http://stackoverflow.com/questions/29303143/wrap-img-elements-in-div-but-allow-for-a-tags
     $doc = new DOMDocument();
     libxml_use_internal_errors(true); // first found as solution for invalid element <mark>, which is valid HTML5 #phpfail
-    $doc->loadHtml(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    // https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
+    $doc->loadHtml('<?xml encoding="utf-8" ?>' . $content, LIBXML_HTML_NODEFDTD);
 
     $xpath = new DOMXPath($doc);
     $lists = $xpath->query(
@@ -67,7 +68,7 @@ function swp_content($content)
         '//*[self::p/child::img or self::p/child::a/child::img]'
     );
     
-    $divImages = $doc->createElement('div');
+    $divImages = $doc->createElement('figure');
     $divImages->setAttribute('class', 'box-flex-image');
     foreach ($imagePs as $imageP) {
         $div = $divImages->cloneNode();
@@ -75,7 +76,7 @@ function swp_content($content)
         $imageP->parentNode->replaceChild($div, $imageP);
     }
 
-    return $doc->saveHTML();
+    return substr($doc->saveHTML($xpath->query('//*[self::body]')->item(0)), strlen('<body>'), -strlen('</body>'));
 }
 
 if ( ! isset( $content_width ) )

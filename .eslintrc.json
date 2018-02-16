@@ -1,11 +1,10 @@
 {
   "extends": "airbnb-base",
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2018
   },
   "env": {
-    "browser": true,
-    "es6": true
+    "browser": true
   },
   "rules": {
     "indent": ["error", 4] // 4 spaces
