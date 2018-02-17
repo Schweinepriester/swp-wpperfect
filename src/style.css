@@ -139,7 +139,7 @@ time {
 }
 
 .box-flex-image a, img:not(.full-height) {
-  max-height: 100vh;
+  max-height: 90vh;
 }
 
 img {

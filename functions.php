@@ -40,8 +40,7 @@ function swp_security_header() {
     header('Referrer-Policy: same-origin');
 }
 
-function swp_content($content)
-{
+function swp_content($content) {
     if (strlen($content) == 0) { // empty string?
         return $content; // finish
     }
@@ -64,18 +63,76 @@ function swp_content($content)
         $div->appendChild($list);
     }
 
+    // TODO match images with captions, too - with link and without
     $imagePs = $xpath->query(
         '//*[self::p/child::img or self::p/child::a/child::img]'
     );
     
-    $divImages = $doc->createElement('figure');
-    $divImages->setAttribute('class', 'box-flex-image');
+    $imageFigure = $doc->createElement('figure');
+    $imageFigure->setAttribute('class', 'box-flex-image');
     foreach ($imagePs as $imageP) {
-        $div = $divImages->cloneNode();
+        $div = $imageFigure->cloneNode();
         $div->appendChild($imageP->firstChild);
         $imageP->parentNode->replaceChild($div, $imageP);
+        $imageImg = $xpath->query('.//img', $div)->item(0);
+        $imageImgClasses = $imageImg->getAttribute('class');
+        // TODO false to prevent
+        if (false && preg_match('/(?:wp-image-)[0-9]+/', $imageImgClasses, $matches ) ) { // TODO only fucking once
+            $imageId = substr($matches[0], 9);
+            $imageHeaders = exif_read_data(get_attached_file($imageId), null, true);
+//            error_log(get_attached_file($imageId));
+//            foreach ($imageHeaders as $header) {
+//                foreach ($header as $field => $value) {
+//                    error_log($field . ': ' . $value);
+//                }
+//            }
+
+            $exifAperture = $imageHeaders['COMPUTED']['ApertureFNumber'];
+            $exifFocalLength = explode('/', $imageHeaders['EXIF']['FocalLength'])[0] . ' mm';
+            $exifExposureTime = $imageHeaders['EXIF']['ExposureTime'];
+            $exifISO = 'ISO ' . $imageHeaders['EXIF']['ISOSpeedRatings'];
+            $exifCamera = $imageHeaders['IFD0']['Model'];
+
+//            $imageImg->setAttribute('data-fnumber', $exifAperture);
+//            $imageImg->setAttribute('data-focallength', $exifFocalLength);
+//            $imageImg->setAttribute('data-exposuretime', $exifExposureTime);
+//            $imageImg->setAttribute('data-iso', $exifISO);
+//            $imageImg->setAttribute('data-cameramodel', $exifCamera);
+//            $imageImg->setAttribute('data-lensmodel', $exifLens);
+
+            $figcaption = $doc->createElement('figcaption');
+            $exifHtml = $doc->createElement('ul');
+            $exifHtml->setAttribute('class', 'exif-list');
+
+            $li = $doc->createElement('li');
+            $li->textContent = $exifAperture;
+            $exifHtml->appendChild($li);
+            $li = $doc->createElement('li');
+            $li->textContent = $exifFocalLength;
+            $exifHtml->appendChild($li);
+            $li = $doc->createElement('li');
+            $li->textContent = $exifExposureTime;
+            $exifHtml->appendChild($li);
+            $li = $doc->createElement('li');
+            $li->textContent = $exifISO;
+            $exifHtml->appendChild($li);
+            $li = $doc->createElement('li');
+            $li->textContent = $exifCamera;
+            $exifHtml->appendChild($li);
+            if (array_key_exists('UndefinedTag:0xA434', $imageHeaders['EXIF'])) {
+                $exifLens = $imageHeaders['EXIF']['UndefinedTag:0xA434'];
+                $li = $doc->createElement('li');
+                $li->textContent = $exifLens;
+                $exifHtml->appendChild($li);
+            }
+
+            $figcaption->appendChild($exifHtml);
+            $div->appendChild($figcaption);
+        }
+
     }
 
+    // strip <body></body>
     return substr($doc->saveHTML($xpath->query('//*[self::body]')->item(0)), strlen('<body>'), -strlen('</body>'));
 }
 
@@ -179,7 +236,7 @@ function my_post_gallery($output, $attr) {
 
 function swp_remove_metadata( $file, $type ) {
     // its not necessary to check for original image or not, as the original doesnt get optimized! … or at least called here
-    // TODO or does it!?
+    // TODO or does it!? definitiv, checken!
     error_log($type);
     if ($type === 'image/jpeg') {
         $image = new Imagick($file);
