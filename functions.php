@@ -9,6 +9,7 @@ add_action( 'after_setup_theme', 'theme_slug_setup' );
 add_filter( 'the_content', 'swp_content' );
 
 add_action( 'after_setup_theme', 'swp_theme_setup' );
+add_filter( 'image_size_names_choose', 'swp_custom_sizes' );
 add_action( 'send_headers', 'swp_security_header' );
 
 // from http://antsanchez.com/remove-new-wordpress-emoji-support/
@@ -163,6 +164,7 @@ function swp_theme_setup(){
 
 function swp_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
+        'larger' => __( 'Larger' ),
         'extra-large' => __( 'Extra Large' ),
     ) );
 }
@@ -234,11 +236,9 @@ function my_post_gallery($output, $attr) {
     return $output;
 }
 
-function swp_remove_metadata( $file, $type ) {
-    // its not necessary to check for original image or not, as the original doesnt get optimized! … or at least called here
-    // TODO or does it!? definitiv, checken!
-    error_log($type);
-    if ($type === 'image/jpeg') {
+function swp_remove_metadata( $file, $type, $fullsize = false ) {
+    if (!$fullsize && $type === 'image/jpeg') {
+        error_log($file);
         $image = new Imagick($file);
 
         // set 4:2:0 per https://stackoverflow.com/a/27147203
@@ -257,13 +257,4 @@ function swp_remove_metadata( $file, $type ) {
 
         $image->writeImage();
     }
-//    remove_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // remove EWWWIO_Imagick_Editor temporarily
-//    $image = wp_get_image_editor( $file );
-//    error_log(get_class($image));
-//    if ( is_wp_error( $image ) ) {
-//        error_log("fail");
-//    }
-//    $image->strip_meta(); // only imagick knows this // TODO this is protected in the class, i hacked it to be public…
-//    $image->save();
-//    add_filter( 'wp_image_editors', 'ewww_image_optimizer_load_editor', 60 ); // add EWWWIO_Imagick_Editor back
 }
