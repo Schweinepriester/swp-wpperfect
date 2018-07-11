@@ -4,9 +4,9 @@
   "author": "Kai Hollberg",
   "devDependencies": {
     "autoprefixer": "^8.0.0",
-    "eslint": "^4.17.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "~2.8.0",
+    "eslint": "~4.19.1",
+    "eslint-config-airbnb-base": "~13.0.0",
+    "eslint-plugin-import": "~2.13.0",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-postcss": "^7.0.1",
@@ -18,8 +18,8 @@
     "postcss-nested": "^3.0.0",
     "postcss-scss": "^1.0.3",
     "postcss-strip-inline-comments": "^0.1.5",
-    "stylelint": "~8.4.0",
-    "stylelint-config-standard": "^18.0.0"
+    "stylelint": "~9.3.0",
+    "stylelint-config-standard": "~18.2.0"
   },
   "private": true
 }

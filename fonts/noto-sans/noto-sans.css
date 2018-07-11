@@ -1,0 +1,43 @@
+/* noto-sans-regular - cyrillic_latin-ext_latin_greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('woff2/noto-sans-v7-cyrillic_latin-ext_latin_greek-regular.woff2') format('woff2'),
+    url('woff/noto-sans-v7-cyrillic_latin-ext_latin_greek-regular.woff') format('woff');
+  font-display: swap;
+}
+
+/* noto-sans-italic - cyrillic_latin-ext_latin_greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 400;
+  src:
+    url('woff2/noto-sans-v7-cyrillic_latin-ext_latin_greek-italic.woff2') format('woff2'),
+    url('woff/noto-sans-v7-cyrillic_latin-ext_latin_greek-italic.woff') format('woff');
+  font-display: swap;
+}
+
+/* noto-sans-700 - cyrillic_latin-ext_latin_greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url('woff2/noto-sans-v7-cyrillic_latin-ext_latin_greek-700.woff2') format('woff2'),
+    url('woff/noto-sans-v7-cyrillic_latin-ext_latin_greek-700.woff') format('woff');
+  font-display: swap;
+}
+
+/* noto-sans-700italic - cyrillic_latin-ext_latin_greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 700;
+  src:
+    url('woff2/noto-sans-v7-cyrillic_latin-ext_latin_greek-700italic.woff2') format('woff2'),
+    url('woff/noto-sans-v7-cyrillic_latin-ext_latin_greek-700italic.woff') format('woff');
+  font-display: swap;
+}
