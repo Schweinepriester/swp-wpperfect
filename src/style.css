@@ -1,6 +1,8 @@
 // Variables
 :root {
-  --colorbackground: #FFFFFF;
+  // HSL: https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
+  --color: hsl(0, 0%, 0%);
+  --colorbackground: hsl(0, 0%, 100%);
   --colorlink: #2980B9;
   --colorlinkhover: #1ABC9C;
   --colorlinkvisited: #8E44AD;
@@ -12,6 +14,7 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+  color: var(--color);
 }
 
 *,
@@ -221,5 +224,12 @@ article:not(:last-of-type) {
   pre {
     margin: 0;
     padding: 12px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color: hsl(0, 0%, 100%);
+    --colorbackground: hsl(0, 0%, 0%);
   }
 }
