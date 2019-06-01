@@ -18,6 +18,11 @@
 
 - <https://github.com/WellingGuzman/WP-Pygments>
 
+#### WebP Express
+
+- <https://wordpress.org/plugins/webp-express>
+- Perfection!
+
 #### StripTease
 
 - Link: <https://wordpress.org/plugins/striptease/>
