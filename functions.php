@@ -12,9 +12,14 @@ add_action( 'after_setup_theme', 'swp_theme_setup' );
 add_filter( 'image_size_names_choose', 'swp_custom_sizes' );
 add_action( 'send_headers', 'swp_security_header' );
 
-// from http://antsanchez.com/remove-new-wordpress-emoji-support/
+// http://antsanchez.com/remove-new-wordpress-emoji-support/
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+// https://wpcrux.com/blog/remove-gutenberg-enqueued-css/
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_style( 'wp-block-library' );
+} );
 
 // https://ewww.io/2016/03/30/ewww-image-optimizer-actions-hooks/
 add_action( 'ewww_image_optimizer_post_optimization', 'swp_remove_metadata', 10, 2 );

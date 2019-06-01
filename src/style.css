@@ -13,7 +13,7 @@
 // Styles
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 100%; // Usually 16px
   color: var(--color);
 }
 
@@ -23,12 +23,9 @@ html {
   box-sizing: inherit;
 }
 
-/*
-http://markdotto.com/2018/02/07/github-system-fonts/
- */
 body {
-  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: calc(14px + 0.3vw + 0.3vh);
+  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; // http://markdotto.com/2018/02/07/github-system-fonts/
+  font-size: calc(0.875rem + 0.3vw + 0.3vh); // Usually 14px + …
   line-height: 1.6;
   background-color: var(--colorbackground);
 }
@@ -50,7 +47,7 @@ time {
   margin-bottom: 5vh;
 
   h1 {
-    font-size: calc(48px + 1vw);
+    font-size: calc(3rem + 1vw); // Usually 48px + …
     line-height: normal;
     font-family: 'Lobster Two', cursive;
     font-weight: 700;
@@ -88,7 +85,7 @@ time {
       padding: 0.25em 0.5em;
       display: flex;
       border-radius: 2px;
-      font-size: calc(14px + 0.2vw + 0.2vh);
+      font-size: calc(0.875rem + 0.2vw + 0.2vh); // Usually 14px + …
     }
   }
 }
