@@ -227,6 +227,7 @@ article:not(:last-of-type) {
 @media (prefers-color-scheme: dark) {
   :root {
     --color: hsl(0, 0%, 100%);
-    --colorbackground: hsl(0, 0%, 0%);
+    --colorbackground: hsl(0, 0%, 13%);
+    --colorlinkhover: #0A89BB;
   }
 }
