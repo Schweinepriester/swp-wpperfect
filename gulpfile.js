@@ -35,14 +35,14 @@ gulp.task('css', () => {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('vendorCSS', () => {
-    return gulp.src(paths.vendor.src)
+gulp.task('vendorCSS', () => (
+    gulp.src(paths.vendor.src)
         .pipe(rename({
             suffix: '.min',
         }))
         .pipe(postcss([cssnano]))
-        .pipe(gulp.dest(paths.vendor.dist));
-});
+        .pipe(gulp.dest(paths.vendor.dist))
+));
 
 gulp.task('default', gulp.parallel('css', 'vendorCSS'));
 
